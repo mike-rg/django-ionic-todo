@@ -1,4 +1,4 @@
-# ionic-to-do
+# ionic proyect
 "Today to do list" made with ionic, you can add, remove and edit an activity
 
 ### Requirements
@@ -24,3 +24,23 @@ $ ionic platform add android
 $ ionic emulate android
 ```
 
+# django-rest and ionic proyect
+
+
+### Install in ionic_frontend's directory
+
+
+### npm
+```sh
+$ npm install
+```
+
+#### Install Angular
+```sh
+$ npm install angular
+```
+
+#### Install angular-resource
+```sh
+$ npm install angular-resource --save
+```
