@@ -1,3 +1,4 @@
+
 """
 Django settings for my_django_config project.
 
@@ -31,11 +32,11 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # Permitir a los desarrolladores realizar solicitudes entre dominios
-    'corsheaders',
     # Para trabajar con Django-REST
     'rest_framework',
-    'rest_framework.authtoken',
+    # Permitir a los desarrolladores realizar solicitudes entre dominios
+    'corsheaders',
+    #'rest_framework.authtoken',
     # Mis apps
     'actividades',
 
@@ -48,12 +49,12 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    # Clase middleware para escuchar las respuestas
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    # Clase middleware para escuchar las respuestas
+    'corsheaders.middleware.CorsMiddleware',
+    
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -133,20 +134,9 @@ STATIC_URL = '/static/'
 
 # Configuracion REST
 REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
+
 }
 
-
-# Nombres de host de origen autorizados para realizar solicitudes HTTP 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:8000',
-    #'127.0.0.1:8100',
-    '192.168.1.103:8100'
-)
 
 # Restringe las direcciones URL para las que se enviarán los encabezados CORS
 CORS_URLS_REGEX = r'^.*$'
@@ -179,7 +169,7 @@ CORS_ALLOW_HEADERS = (
 
 # Si es True, la lista blanca no se utilizará y todos los orígenes serán
 # aceptados
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Si es Verdadero, se permitirá que las cookies se incluyan en las solicitudes

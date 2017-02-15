@@ -1,10 +1,9 @@
 from rest_framework import serializers
 
-from actividades.models import Actividades
+from actividades.models import Actividad
 
 
-class ActividadesSerializer(serializers.ModelSerializer):
-
+class ActividadSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
-        model = Actividades
-        fields = ('nombre', 'descripcion', 'fecha_creacion', 'fecha_modificacion')
+        model = Actividad
+        fields = ('titulo', 'descripcion', 'fecha_creacion', 'fecha_modificacion')
