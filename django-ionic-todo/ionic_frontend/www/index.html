@@ -40,30 +40,32 @@
     <script src="js/services.js"></script>
 
   </head>
-  <body ng-app="app" ng-controller="actividadesCtrl">
+  <body ng-app="app" ng-controller="actividadCtrl">
     <ion-pane>
       <ion-header-bar class="bar-royal">
         <h1 class="title">{{ header }}</h1>
-        <button class="button button-icon" ng-click="newTask()">
+        <button class="button button-icon" ng-click="crear_actividad()">
           <i class="ion-compose icon"></i>
         </button>      
       </ion-header-bar>
       <ion-content>
         <ion-list>
+          <!-- Corregir. Agregar correctamente el id de la actividad -->
           <ion-item ng-repeat="actividad in actividades"
                     class="item-icon-right"
                     ng-class="{complete: actividad.completed}"
-                    ng-click="actividad.completed = !actividad.completed">
+                    ng-click="actividad.completed = !actividad.completed"
+                    >
             <i class="icon ion-ios-arrow-left"></i>
             <ion-option-button class="button-assertive"
-                               ng-click="actividad.splice($index, 1)">
+                               ng-click="eliminar_actividad(actividad)">
               Delete
             </ion-option-button>
             <ion-option-button class="button-energized"
                                ng-click="editar_actividad(actividad)">
               Edit
             </ion-option-button>
-            {{ actividad.nombre }}
+            {{ actividad.titulo }}
           </ion-item>
         </ion-list>
       </ion-content>

@@ -7,6 +7,7 @@ angular.module('app.services', ['ngResource'])
 .config(['$resourceProvider', '$httpProvider',
 function($resourceProvider, $httpProvider) {
     $resourceProvider.defaults.stripTrailingSlashes = false;
+    //$httpProvider.defaults.headers.common['X-CSRFToken'] = '{{csrf_token}}';
 }])
 
 // httpProvider
@@ -16,6 +17,7 @@ function($resourceProvider, $httpProvider) {
 // resourceProvider
 // Una 'factory' crea un 'resource object' que te permite interactuar
 // con 'data sources' del RESTful del lado del servidor
-.factory('Actividades', ['$resource', function($resource){
-    return $resource('http://localhost:8000/lista_de_actividades/');
+.factory('Actividad', ['$resource', function($resource){
+    return $resource('http://localhost:8000/api/actividades/:id/');
 }])
+
