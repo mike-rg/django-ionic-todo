@@ -12,6 +12,3 @@ class Actividad(models.Model):
     descripcion = models.CharField(max_length=100, default='Descripcion de la actividad')
     fecha_creacion = models.DateTimeField(auto_now_add=True)
     fecha_modificacion = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return "%s %s" % (self.titulo, self.descripcion)

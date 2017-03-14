@@ -3,10 +3,8 @@ angular.module('app.controllers', ['ionic'])
 // $routeParams,
 .controller('actividadCtrl', [ '$scope', '$ionicPopup', '$ionicListDelegate', 'Actividad',
 function ($scope, $ionicPopup, $ionicListDelegate, Actividad) {
-
-  $scope.header = 'Activity list';
+  $scope.header = 'que hace vieja';
   $scope.actividades = Actividad.query();
-  // Cargamos por primera vez la lista de actividades
 
   $scope.crear_actividad = function() {
     $ionicPopup.prompt({
@@ -21,8 +19,7 @@ function ($scope, $ionicPopup, $ionicListDelegate, Actividad) {
           descripcion: res
         });
         // $save: metodo de instancia(resource.$save)
-        actividad.$save();
-        actualizar()
+        actividad.$save()
       }
     })  // Fin promesa
   }; // Fin de crear_actividad
@@ -41,10 +38,8 @@ function ($scope, $ionicPopup, $ionicListDelegate, Actividad) {
           actividadToUpdate.descripcion = $scope.data.response;
           Actividad.update({ id:actividad.id }, actividadToUpdate );
         });
-        actualizar()
       };
-
-      $ionicListDelegate.closeOptionButtons();
+      $ionicListDelegate.closeOptionButtons()
     })  // Fin promesa
   }; // Fin de editar_actividad
 
@@ -52,17 +47,6 @@ function ($scope, $ionicPopup, $ionicListDelegate, Actividad) {
   $scope.eliminar_actividad = function(actividad) {
     // delete: metodo del modelo Actividad
     Actividad.delete({ id: actividad.id })
-    actualizar()
   }; // Fin de eliminar_actividad
-
-  $scope.actualizar_lista = function(){
-    $scope.actividades = Actividad.query();
-  }
-
-  function actualizar() {
-    setTimeout(function(){
-      window.location.reload(1);
-    }, 1000);
-  }
 
 }])

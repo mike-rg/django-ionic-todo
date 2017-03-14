@@ -26,20 +26,18 @@ SECRET_KEY = 'tkzat+wr!$!3akec20yuc$+h+vk0zl8a=hzax3y=x^y-na6h@r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.103']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    # Mis apps
+    'actividades',
     # Para trabajar con Django-REST
     'rest_framework',
     # Permitir a los desarrolladores realizar solicitudes entre dominios
     'corsheaders',
-    #'rest_framework.authtoken',
-    # Mis apps
-    'actividades',
-
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -132,39 +130,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# Configuracion REST
+# REST framework config
 REST_FRAMEWORK = {
-
 }
-
-
-# Restringe las direcciones URL para las que se enviarán los encabezados CORS
-CORS_URLS_REGEX = r'^.*$'
-
-
-# listado de directivas HTTP permitidas
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)
-
-# La lista de encabezados HTTP no estándar que se pueden utilizar al realizar
-# la solicitud real
-CORS_ALLOW_HEADERS = (
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-)
 
 
 # Si es True, la lista blanca no se utilizará y todos los orígenes serán

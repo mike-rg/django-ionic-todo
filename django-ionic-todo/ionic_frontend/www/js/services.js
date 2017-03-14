@@ -18,9 +18,6 @@ function($resourceProvider, $httpProvider) {
 // Una 'factory' crea un 'resource object' que te permite interactuar
 // con 'data sources' del RESTful del lado del servidor
 .factory('Actividad', ['$resource', function($resource){
-    // Para trabajar localmente uso:
-    // http://localhost:8000/api/actividades/:id/
-    // Desde el servidor nginx
     return $resource('http://192.168.1.103/api/actividades/:id/', null, {
     	// solicitud 'PUT' personalizada.
     	'update': { method : 'PUT' },

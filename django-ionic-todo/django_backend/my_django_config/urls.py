@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.conf.urls import include, url
+from django.conf.urls.static import static
 from django.contrib import admin
 
 from rest_framework import routers
@@ -23,10 +24,14 @@ from actividades.views import (
 	ActividadViewSet
 )
 
+
 router = routers.SimpleRouter()
 router.register(r'actividades', ActividadViewSet)
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^api/', include(router.urls)),
 ]
+
+#urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
